@@ -1,0 +1,39 @@
+{
+  "address": "1Name2NXVi1RDPDgf5617UoW7xA6YrhM9F", 
+  "description": "Namecoin address registry", 
+  "files": {
+    "css/all.css": {
+      "sha1": "11e69727187bf94e8e77dbee8cf3aad5713251fc", 
+      "sha512": "f00818c5b52013a467dc1883214b57cf6ac3dbe6da2df3f0af3cb232cd74877b", 
+      "size": 69952
+    }, 
+    "data/names.json": {
+      "sha1": "21263c74b9d7050fddb9404aa7e1fd84f130ddf9", 
+      "sha512": "8150cc58a8f765b5d6c41ba002fb5060c6f9dc34471d428cb168b5f0788b4da6", 
+      "size": 256
+    }, 
+    "index.html": {
+      "sha1": "2b71cfa3612216d711297c87c44f391f7a5c259d", 
+      "sha512": "27a3a13751d7b3a841959449be56dbfd27a9e51b70859b4ff8628c00acca0418", 
+      "size": 1702
+    }, 
+    "js/all.js": {
+      "sha1": "fc5f309edb8f1f7cba9a3387a8130fc2cada6fda", 
+      "sha512": "f568a012eb2ab683ce7c05245960206e83504aefff5941bba06d693fbe09efcd", 
+      "size": 90231
+    }
+  }, 
+  "ignore": "(js|css)/(?!all.(js|css))", 
+  "modified": 1427736135.805447, 
+  "sign": [
+    18237333096300827403784414410769579844410384774341853142605492460727721293662, 
+    67206022468102401684383295673240483285031945012944700684706152353860352287531
+  ], 
+  "signers_sign": "HOKZByY9pO2Iqh5UE+Nb7N5qb2cTvhULB3euvszufDnGIVeF4mswur3PyXxGXM+tJ8kZOFzspFRIl0gOyCE0tCM=", 
+  "signs": {
+    "1Name2NXVi1RDPDgf5617UoW7xA6YrhM9F": "G062o7/FdBuYQNGhzm3NQjmFdPZs2fLxA65sN6cIyinsyNMcDQHjvIFUpAWuB+gVWxyMymSr4D775cbRriwU4rY="
+  }, 
+  "signs_required": 1, 
+  "title": "ZeroName", 
+  "zeronet_version": "0.2.8"
+}

@@ -1,0 +1,38 @@
+body { background-color: #323D45; color: white; margin: 0px; padding: 0px; font-family: 'Roboto', sans-serif; padding-bottom: 50px }/*#AF3FBB*/
+h1, h2, h3, h4 { font-family: 'Roboto', sans-serif; font-weight: normal; font-size: 50px; margin: 0px; padding: 0px }
+h1 { line-height: 80px }
+h2 { font-size: 35px; margin-bottom: 15px }
+h3 { font-size: 23px }
+h4 { display: block; font-size: 11px; text-transform: uppercase; margin-bottom: 19px }
+
+.domains { margin: 40px auto; }
+
+pre.code { text-align: left; color: #96A3A5 }
+pre.code b { font-weight: normal; color: white }
+
+.block { padding: 20px }
+.block-head { background-color: #F44336; display: inline-block; width: 38px;height: 100%; position: fixed; top: 0px; z-index: 999; }
+.block-head h1 {   white-space: nowrap; transform: rotate(90deg); font-size: 24px; }
+.block-domains { padding: 0px; /*background-color: #39464F*/ }
+.block-register { margin-top: 40px; margin-left: 82px; background-color: #39464F; opacity: 0; transition: all 0.3s; transform: scale(1) translateY(-50px); max-height: 0px; overflow: hidden; pointer-events: none }
+.block-register.visible { opacity: 1; transform: scale(1); max-height: 600px; pointer-events: inherit }
+
+.link-register { display: block; text-align: center; font-size: 12px; text-transform: uppercase; font-weight: bold }
+.link-register a { color: rgb(149, 161, 169) }
+
+a { color: white }
+a { text-decoration: none }
+a:hover { border-bottom: 1px solid rgba(255,255,255, 0.3) }
+.bullet { color: #53B1B7; vertical-align: -7px; font-size: 35px; line-height: 0px; margin-right: 5px; }
+
+.domains { opacity: 0; transition: all 0.3s }
+table { font-size: 16px; color: white; border-collapse: collapse }
+table td, table th { padding: 10px 10px; white-space: nowrap; }
+table td { background-color: #39464F; border-bottom: 1px solid #323D45; font-size: 14px; transition: all 0.3s }
+table th { text-transform: uppercase; font-size: 11px; opacity: 0.3; text-align: left; }
+table tr:hover td { background-color: #42515C }
+table .name { text-align: right }
+table .name a { font-weight: bold; font-size: 24px }
+table .pre, table .post { width: 50% }
+
+.template { display: none }
