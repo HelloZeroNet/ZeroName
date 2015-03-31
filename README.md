@@ -1,0 +1,2 @@
+# ZeroName
+ZeroNet domain registry
