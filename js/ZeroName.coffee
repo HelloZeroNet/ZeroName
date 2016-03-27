@@ -13,7 +13,7 @@ class ZeroName extends ZeroFrame
 		@cmd "fileQuery", ["data/names.json", ""], (res) =>
 			$(".domain:not(.template)").remove()
 			domains = Object.keys(res[0])
-			domains.sort (a,b) ->
+			domains.sort (a, b) ->
 				a = a.replace(/.*\.(.*?\..*?)/, "$1")
 				b = b.replace(/.*\.(.*?\..*?)/, "$1")
 				return a.localeCompare(b)

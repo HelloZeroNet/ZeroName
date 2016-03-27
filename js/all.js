@@ -15,17 +15,18 @@
 
 (function() {
   var ZeroFrame,
-    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    __slice = [].slice;
+    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+    slice = [].slice;
 
   ZeroFrame = (function() {
     function ZeroFrame(url) {
-      this.onCloseWebsocket = __bind(this.onCloseWebsocket, this);
-      this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
-      this.route = __bind(this.route, this);
-      this.onMessage = __bind(this.onMessage, this);
+      this.onCloseWebsocket = bind(this.onCloseWebsocket, this);
+      this.onOpenWebsocket = bind(this.onOpenWebsocket, this);
+      this.route = bind(this.route, this);
+      this.onMessage = bind(this.onMessage, this);
       this.url = url;
       this.waiting_cb = {};
+      this.wrapper_nonce = document.location.href.replace(/.*wrapper_nonce=([A-Za-z0-9]+).*/, "$1");
       this.connect();
       this.next_message_id = 1;
       this.init();
@@ -93,6 +94,7 @@
       if (cb == null) {
         cb = null;
       }
+      message.wrapper_nonce = this.wrapper_nonce;
       message.id = this.next_message_id;
       this.next_message_id += 1;
       this.target.postMessage(message, "*");
@@ -103,8 +105,8 @@
 
     ZeroFrame.prototype.log = function() {
       var args;
-      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      return console.log.apply(console, ["[ZeroFrame]"].concat(__slice.call(args)));
+      args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
+      return console.log.apply(console, ["[ZeroFrame]"].concat(slice.call(args)));
     };
 
     ZeroFrame.prototype.onOpenWebsocket = function() {
@@ -129,16 +131,16 @@
 
 (function() {
   var ZeroName,
-    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-    __hasProp = {}.hasOwnProperty;
+    bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+    extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    hasProp = {}.hasOwnProperty;
 
-  ZeroName = (function(_super) {
-    __extends(ZeroName, _super);
+  ZeroName = (function(superClass) {
+    extend(ZeroName, superClass);
 
     function ZeroName() {
-      this.actionSetSiteInfo = __bind(this.actionSetSiteInfo, this);
-      this.onOpenWebsocket = __bind(this.onOpenWebsocket, this);
+      this.actionSetSiteInfo = bind(this.actionSetSiteInfo, this);
+      this.onOpenWebsocket = bind(this.onOpenWebsocket, this);
       return ZeroName.__super__.constructor.apply(this, arguments);
     }
 
@@ -156,7 +158,7 @@
     ZeroName.prototype.updateDomains = function() {
       return this.cmd("fileQuery", ["data/names.json", ""], (function(_this) {
         return function(res) {
-          var address, domain, domains, elem, _i, _len;
+          var address, domain, domains, elem, i, len;
           $(".domain:not(.template)").remove();
           domains = Object.keys(res[0]);
           domains.sort(function(a, b) {
@@ -164,8 +166,8 @@
             b = b.replace(/.*\.(.*?\..*?)/, "$1");
             return a.localeCompare(b);
           });
-          for (_i = 0, _len = domains.length; _i < _len; _i++) {
-            domain = domains[_i];
+          for (i = 0, len = domains.length; i < len; i++) {
+            domain = domains[i];
             if (domain === "inner_path") {
               continue;
             }
