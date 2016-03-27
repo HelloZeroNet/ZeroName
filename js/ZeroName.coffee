@@ -12,9 +12,16 @@ class ZeroName extends ZeroFrame
 	updateDomains: ->
 		@cmd "fileQuery", ["data/names.json", ""], (res) =>
 			$(".domain:not(.template)").remove()
-			for domain, address of res[0]
+			domains = Object.keys(res[0])
+			domains.sort (a,b) ->
+				a = a.replace(/.*\.(.*?\..*?)/, "$1")
+				b = b.replace(/.*\.(.*?\..*?)/, "$1")
+				return a.localeCompare(b)
+
+			for domain in domains
 				if domain == "inner_path" then continue
 				elem = $(".domain.template").clone().removeClass("template").appendTo(".domains")
+				address = res[0][domain]
 				@applyDomainData(elem, domain, address)
 			$(".domains").css("opacity", 1)
 

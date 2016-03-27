@@ -156,15 +156,21 @@
     ZeroName.prototype.updateDomains = function() {
       return this.cmd("fileQuery", ["data/names.json", ""], (function(_this) {
         return function(res) {
-          var address, domain, elem, _ref;
+          var address, domain, domains, elem, _i, _len;
           $(".domain:not(.template)").remove();
-          _ref = res[0];
-          for (domain in _ref) {
-            address = _ref[domain];
+          domains = Object.keys(res[0]);
+          domains.sort(function(a, b) {
+            a = a.replace(/.*\.(.*?\..*?)/, "$1");
+            b = b.replace(/.*\.(.*?\..*?)/, "$1");
+            return a.localeCompare(b);
+          });
+          for (_i = 0, _len = domains.length; _i < _len; _i++) {
+            domain = domains[_i];
             if (domain === "inner_path") {
               continue;
             }
             elem = $(".domain.template").clone().removeClass("template").appendTo(".domains");
+            address = res[0][domain];
             _this.applyDomainData(elem, domain, address);
           }
           return $(".domains").css("opacity", 1);
