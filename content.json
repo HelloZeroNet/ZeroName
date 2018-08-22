@@ -1,6 +1,7 @@
 {
   "address": "1Name2NXVi1RDPDgf5617UoW7xA6YrhM9F", 
   "description": "Namecoin address registry", 
+  "favicon": "favicon.png",
   "files": {
     "css/all.css": {
       "sha1": "11e69727187bf94e8e77dbee8cf3aad5713251fc", 
